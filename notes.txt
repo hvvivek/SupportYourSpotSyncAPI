@@ -1,0 +1,2 @@
+MONGO_USER = mongosyncapi
+MONGO_PASSWORD = jrtsjh77685
