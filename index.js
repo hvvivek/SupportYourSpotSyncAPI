@@ -67,9 +67,8 @@ async function insertOrUpdate(record)
     {
         cityInDb = await City({name: record["city"], slug: record["city"].toLowerCase()}).save()
     }
-
     record["city"] = cityInDb["_id"]
-    const businessInDb = await Business.findOne({name: record["name"], city: record["city"]}).exec()
+    const businessInDb = await Business.findOne({name: record["name"], city: record["city"], neighborhood: record["neighborhood"]}).exec()
     if(businessInDb)
     {
         const update = await Business.update({name: record["name"]}, record).exec()
